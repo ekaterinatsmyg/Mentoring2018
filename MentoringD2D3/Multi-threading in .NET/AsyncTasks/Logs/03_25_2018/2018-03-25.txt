@@ -1,0 +1,73 @@
+2018-03-25 20:16:56.8977 | Error | A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: SQL Network Interfaces, error: 50 - Local Database Runtime error occurred. The specified LocalDB instance does not exist.
+) 
+    at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__36(DbConnection t, DbConnectionInterceptionContext c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   at System.Data.Entity.SqlServer.SqlProviderServices.<>c__DisplayClass33.<UsingConnection>b__32()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   at System.Data.Entity.SqlServer.SqlProviderServices.UsingConnection(DbConnection sqlConnection, Action`1 act)
+   at System.Data.Entity.SqlServer.SqlProviderServices.UsingMasterConnection(DbConnection sqlConnection, Action`1 act)
+   at System.Data.Entity.SqlServer.SqlProviderServices.CreateDatabaseFromScript(Nullable`1 commandTimeout, DbConnection sqlConnection, String createDatabaseScript)
+   at System.Data.Entity.SqlServer.SqlProviderServices.DbCreateDatabase(DbConnection connection, Nullable`1 commandTimeout, StoreItemCollection storeItemCollection)
+   at System.Data.Entity.Core.Common.DbProviderServices.CreateDatabase(DbConnection connection, Nullable`1 commandTimeout, StoreItemCollection storeItemCollection)
+   at System.Data.Entity.Core.Objects.ObjectContext.CreateDatabase()
+   at System.Data.Entity.Migrations.Utilities.DatabaseCreator.Create(DbConnection connection)
+   at System.Data.Entity.Migrations.DbMigrator.EnsureDatabaseExists(Action mustSucceedToKeepDatabase)
+   at System.Data.Entity.Migrations.DbMigrator.Update(String targetMigration)
+   at System.Data.Entity.Internal.DatabaseCreator.CreateDatabase(InternalContext internalContext, Func`3 createMigrator, ObjectContext objectContext)
+   at System.Data.Entity.Internal.InternalContext.CreateDatabase(ObjectContext objectContext, DatabaseExistenceState existenceState)
+   at System.Data.Entity.Database.Create(DatabaseExistenceState existenceState)
+   at System.Data.Entity.DropCreateDatabaseIfModelChanges`1.InitializeDatabase(TContext context)
+   at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
+   at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   at System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   at System.Data.Entity.Internal.LazyInternalContext.<InitializeDatabase>b__4(InternalContext c)
+   at System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabase()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.GetAsyncEnumerator()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Data.Entity.Infrastructure.IDbAsyncEnumerable<TResult>.GetAsyncEnumerator()
+   at System.Data.Entity.Infrastructure.IDbAsyncEnumerableExtensions.ForEachAsync[T](IDbAsyncEnumerable`1 source, Action`1 action, CancellationToken cancellationToken)
+   at System.Data.Entity.Infrastructure.IDbAsyncEnumerableExtensions.ToListAsync[T](IDbAsyncEnumerable`1 source, CancellationToken cancellationToken)
+   at System.Data.Entity.Infrastructure.IDbAsyncEnumerableExtensions.ToListAsync[T](IDbAsyncEnumerable`1 source)
+   at System.Data.Entity.QueryableExtensions.ToListAsync[TSource](IQueryable`1 source)
+   at AsyncTasks.Task3.Repositories.ProductRepository.<GetAllProductsAsync>d__2.MoveNext() in D:\MentoringD2D3\Multi-threading in .NET\AsyncTasks\AsyncTasks.Task3\Repositories\ProductRepository.cs:line 24
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at AsyncTasks.Task3.Services.ProductService.<GetAllProductsAsync>d__3.MoveNext() in D:\MentoringD2D3\Multi-threading in .NET\AsyncTasks\AsyncTasks.Task3\Services\ProductService.cs:line 27
+2018-03-25 20:21:14.0464 | Error | Mapper is not initialized. Call Initialize. 
+    at AsyncTasks.Task3.Mappers.Mapper.get_Instance() in D:\MentoringD2D3\Multi-threading in .NET\AsyncTasks\AsyncTasks.Task3\Mappers\Mapper.cs:line 21
+   at AsyncTasks.Task3.Mappers.Mapper.Map[TSource,TDestination](TSource source) in D:\MentoringD2D3\Multi-threading in .NET\AsyncTasks\AsyncTasks.Task3\Mappers\Mapper.cs:line 42
+   at AsyncTasks.Task3.Services.ProductService.<GetAllProductsAsync>d__3.MoveNext() in D:\MentoringD2D3\Multi-threading in .NET\AsyncTasks\AsyncTasks.Task3\Services\ProductService.cs:line 28
+2018-03-25 20:25:37.7653 | Error | Mapper is not initialized. Call Initialize. 
+    at AsyncTasks.Task3.Mappers.Mapper.get_Instance() in D:\MentoringD2D3\Multi-threading in .NET\AsyncTasks\AsyncTasks.Task3\Mappers\Mapper.cs:line 21
+   at AsyncTasks.Task3.Mappers.Mapper.Map[TSource,TDestination](TSource source) in D:\MentoringD2D3\Multi-threading in .NET\AsyncTasks\AsyncTasks.Task3\Mappers\Mapper.cs:line 42
+   at AsyncTasks.Task3.Services.ProductService.<GetAllProductsAsync>d__3.MoveNext() in D:\MentoringD2D3\Multi-threading in .NET\AsyncTasks\AsyncTasks.Task3\Services\ProductService.cs:line 28
+2018-03-25 20:27:51.7096 | Error | Mapper is not initialized. Call Initialize. 
+    at AsyncTasks.Task3.Mappers.Mapper.get_Instance() in D:\MentoringD2D3\Multi-threading in .NET\AsyncTasks\AsyncTasks.Task3\Mappers\Mapper.cs:line 21
+   at AsyncTasks.Task3.Mappers.Mapper.Map[TSource,TDestination](TSource source) in D:\MentoringD2D3\Multi-threading in .NET\AsyncTasks\AsyncTasks.Task3\Mappers\Mapper.cs:line 42
+   at AsyncTasks.Task3.Services.ProductService.<GetAllProductsAsync>d__3.MoveNext() in D:\MentoringD2D3\Multi-threading in .NET\AsyncTasks\AsyncTasks.Task3\Services\ProductService.cs:line 28
+2018-03-25 20:37:52.0617 | Error | Mapper is not initialized. Call Initialize. 
+    at AsyncTasks.Task3.Mappers.Mapper.get_Instance() in D:\MentoringD2D3\Multi-threading in .NET\AsyncTasks\AsyncTasks.Task3\Mappers\Mapper.cs:line 21
+   at AsyncTasks.Task3.Mappers.Mapper.Map[TSource,TDestination](TSource source) in D:\MentoringD2D3\Multi-threading in .NET\AsyncTasks\AsyncTasks.Task3\Mappers\Mapper.cs:line 42
+   at AsyncTasks.Task3.Services.ProductService.<GetAllProductsAsync>d__3.MoveNext() in D:\MentoringD2D3\Multi-threading in .NET\AsyncTasks\AsyncTasks.Task3\Services\ProductService.cs:line 28

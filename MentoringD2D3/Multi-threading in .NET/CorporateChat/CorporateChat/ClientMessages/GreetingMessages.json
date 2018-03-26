@@ -1,0 +1,31 @@
+﻿[
+  {
+    "id": "1",
+    "message": "Hello!"
+  },
+  {
+    "id": "2",
+    "message": "Hi!"
+  },
+  {
+    "id": "3",
+    "message": "Hey!"
+  },
+  {
+    "id": "4",
+    "message": "Good Morning!"
+  },
+  {
+    "id": "5",
+    "message": "What’s up?"
+  },
+  {
+    "id": "6",
+    "message": "Nice to see you"
+  },
+  {
+    "id": "7",
+    "message": "How are you doing?"
+  }
+]
+

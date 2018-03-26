@@ -1,0 +1,13 @@
+﻿@model AsyncTasks.Task3.Models.BasketViewModel
+
+@{
+    ViewBag.Title = "title";
+}
+
+<h2>Basket</h2>
+<div>
+    @Html.HiddenFor(model => model.BasketId)
+</div>
+<div>
+    @Html.DisplayFor(model => model.TotalPrice)
+</div>

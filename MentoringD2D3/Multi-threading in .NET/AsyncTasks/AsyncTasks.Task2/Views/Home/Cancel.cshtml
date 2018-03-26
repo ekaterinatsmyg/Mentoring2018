@@ -1,0 +1,7 @@
+﻿@model AsyncTasks.Task2.Models.UrlViewModel
+
+@Html.DisplayFor(model => model.Content)
+
+<p>
+    <button class="btn" onclick="location.href='@Url.Action("Index", "Home")'" >Back</button>
+</p>

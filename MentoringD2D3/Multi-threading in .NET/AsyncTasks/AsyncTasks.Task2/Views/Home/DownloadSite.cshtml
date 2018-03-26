@@ -1,0 +1,40 @@
+﻿@model AsyncTasks.Task2.Models.UrlViewModel
+
+@{
+    ViewBag.Title = "Loading site";
+}
+
+<h2>Site Loading</h2>
+@{
+    AjaxOptions ajaxOpts = new AjaxOptions
+    {
+        InsertionMode = InsertionMode.ReplaceWith,
+        UpdateTargetId = Model.Id.ToString()
+    };
+}
+
+<div id="@Model.Id.ToString()" class="col-md-4">
+    <h4>UrlState</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Site)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Site)
+        </dd>
+    </dl>
+    <div>
+        Loading ...       
+    </div>
+    <p>
+        <iframe src="@Url.Action("StartDownload", "Home", new { Id = Model.Id })"></iframe>
+
+        @using (Ajax.BeginForm("Cancel", "Home", ajaxOpts))
+        { 
+            @Html.HiddenFor(model => model.Id)
+            <input type="submit" value="Cancel" class="btn btn-default" />
+        }
+    </p>
+</div>
