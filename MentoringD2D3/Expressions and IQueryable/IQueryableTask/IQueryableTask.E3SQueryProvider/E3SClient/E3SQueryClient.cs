@@ -13,7 +13,7 @@ namespace IQueryableTask.E3SQueryProvider.E3SClient
     {
         private string UserName;
         private string Password;
-        private Uri BaseAddress = new Uri("https://e3s.epam.com/eco/rest/e3s-eco-scripting-impl/0.1.0");
+        private Uri BaseAddress = new Uri("https://telescope.epam.com/eco/rest/e3s-eco-scripting-impl/0.1.0");
 
 
         public E3SQueryClient(string user, string password)
@@ -22,7 +22,7 @@ namespace IQueryableTask.E3SQueryProvider.E3SClient
             Password = password;
         }
 
-        public IEnumerable<T> SearchFTS<T>(string query, int start = 0, int limit = 0) where T : E3SEntity
+        public IEnumerable<T> SearchFTS<T>(string[] query, int start = 0, int limit = 0) where T : E3SEntity
         {
             HttpClient client = CreateClient();
             var requestGenerator = new FTSRequestGenerator(BaseAddress);
@@ -35,7 +35,7 @@ namespace IQueryableTask.E3SQueryProvider.E3SClient
         }
 
 
-        public IEnumerable SearchFTS(Type type, string query, int start = 0, int limit = 0)
+        public IEnumerable SearchFTS(Type type, string[] query, int start = 0, int limit = 0)
         {
             HttpClient client = CreateClient();
             var requestGenerator = new FTSRequestGenerator(BaseAddress);
@@ -64,6 +64,7 @@ namespace IQueryableTask.E3SQueryProvider.E3SClient
                 AllowAutoRedirect = true,
                 PreAuthenticate = true
             });
+
             var encoding = new ASCIIEncoding();
             var authHeader = new AuthenticationHeaderValue("Basic",
                 Convert.ToBase64String(encoding.GetBytes(string.Format("{0}:{1}", UserName, Password))));

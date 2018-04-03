@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Configuration;
+using System.Diagnostics;
 using System.Linq;
 using IQueryableTask.E3SQueryProvider;
 using IQueryableTask.E3SQueryProvider.E3SClient;
@@ -14,12 +15,12 @@ namespace IQueryableTask.Tests
         [TestMethod]
         public void WithoutProvider()
         {
-            var client = new E3SQueryClient("katsiaryna_tsmyh@epam.com", "UnusoH832505");
-            var res = client.SearchFTS<EmployeeEntity>("workstation:(EPRUIZHW0249)", 0, 1);
+            var client = new E3SQueryClient(ConfigurationManager.AppSettings["user"], ConfigurationManager.AppSettings["password"]);
+            var res = client.SearchFTS<EmployeeEntity>(new []{"workstation:(EPRUIZHW0249)"}, 0, 1);
 
             foreach (var emp in res)
             {
-                Console.WriteLine("{0} {1}", emp.nativename, emp.startworkdate);
+				Console.WriteLine("{0} {1}", emp.nativeName, emp.shortStartWorkDate);
             }
         }
 
@@ -27,11 +28,11 @@ namespace IQueryableTask.Tests
         public void WithoutProviderNonGeneric()
         {
             var client = new E3SQueryClient(ConfigurationManager.AppSettings["user"], ConfigurationManager.AppSettings["password"]);
-            var res = client.SearchFTS(typeof(EmployeeEntity), "workstation:(EPRUIZHW0249)", 0, 10);
+            var res = client.SearchFTS(typeof(EmployeeEntity), new[] {"workstation:(EPRUIZHW0249)"}, 0, 10);
 
             foreach (var emp in res.OfType<EmployeeEntity>())
             {
-                Console.WriteLine("{0} {1}", emp.nativename, emp.startworkdate);
+                Console.WriteLine("{0} {1}", emp.nativeName, emp.shortStartWorkDate);
             }
         }
 
@@ -40,11 +41,61 @@ namespace IQueryableTask.Tests
         public void WithProvider()
         {
             var employees = new E3SEntitySet<EmployeeEntity>(ConfigurationManager.AppSettings["user"], ConfigurationManager.AppSettings["password"]);
-
-            foreach (var emp in employees.Where(e => e.workstation == "EPRUIZHW0249"))
+            
+            foreach (var emp in employees.Where(e =>  e.workStation == "EPRUIZHW0249"))
             {
-                Console.WriteLine("{0} {1}", emp.nativename, emp.startworkdate);
+                Debug.WriteLine("{0} {1}", emp.nativeName, emp.shortStartWorkDate);
             }
+        }
+
+        [TestMethod]
+        public void WhereTest()
+        {
+            var employees = new E3SEntitySet<EmployeeEntity>(ConfigurationManager.AppSettings["user"], ConfigurationManager.AppSettings["password"]);
+            var result = employees.Where(e => "EPRUIZHW0249" == e.workStation).ToList();
+
+            Assert.IsNotNull(result);
+            Assert.IsTrue(result.Any());
+        }
+
+        [TestMethod]
+        public void StartsWithTest()
+        {
+            var employees = new E3SEntitySet<EmployeeEntity>(ConfigurationManager.AppSettings["user"], ConfigurationManager.AppSettings["password"]);
+            var result = employees.Where(e => e.workStation.StartsWith("EPRUIZHW02")).ToList();
+
+            Assert.IsNotNull(result);
+            Assert.IsTrue(result.Any());
+        }
+
+        [TestMethod]
+        public void EndsWithTest()
+        {
+            var employees = new E3SEntitySet<EmployeeEntity>(ConfigurationManager.AppSettings["user"], ConfigurationManager.AppSettings["password"]);
+            var result = employees.Where(e => e.firstName.EndsWith("rew")).ToList();
+
+            Assert.IsNotNull(result);
+            Assert.IsTrue(result.Any());
+        }
+
+        [TestMethod]
+        public void ContainsTest()
+        {
+            var employees = new E3SEntitySet<EmployeeEntity>(ConfigurationManager.AppSettings["user"], ConfigurationManager.AppSettings["password"]);
+            var result = employees.Where(e => e.firstName.Contains("ryna")).ToList();
+
+            Assert.IsNotNull(result);
+            Assert.IsTrue(result.Any());
+        }
+
+        [TestMethod]
+        public void AndTest()
+        {
+            var employees = new E3SEntitySet<EmployeeEntity>(ConfigurationManager.AppSettings["user"], ConfigurationManager.AppSettings["password"]);
+            var result = employees.Where(e => e.firstName.Contains("aryn") && e.workStation.StartsWith("EPBYMIN")).ToList();
+
+            Assert.IsNotNull(result);
+            Assert.IsTrue(result.Any());
         }
     }
 }

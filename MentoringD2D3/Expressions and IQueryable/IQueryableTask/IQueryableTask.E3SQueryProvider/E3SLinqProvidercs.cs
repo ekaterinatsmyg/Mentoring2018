@@ -8,6 +8,7 @@ namespace IQueryableTask.E3SQueryProvider
     public class E3SLinqProvider : IQueryProvider
     {
         private E3SQueryClient e3sClient;
+        private const char QUERY_SEPORATOR = ',';
 
         public E3SLinqProvider(E3SQueryClient client)
         {
@@ -34,7 +35,7 @@ namespace IQueryableTask.E3SQueryProvider
             var itemType = TypeHelper.GetElementType(expression.Type);
 
             var translator = new ExpressionToFTSRequestTranslator();
-            var queryString = translator.Translate(expression);
+            var queryString = translator.Translate(expression).Split(QUERY_SEPORATOR);
 
             return (TResult)(e3sClient.SearchFTS(itemType, queryString));
         }
