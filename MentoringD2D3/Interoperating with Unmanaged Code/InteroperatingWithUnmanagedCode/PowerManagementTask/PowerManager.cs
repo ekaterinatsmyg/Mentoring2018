@@ -31,29 +31,19 @@ namespace PowerManagementTask
         /// <summary>
         /// Gets a last time of the system sleep.
         /// </summary>
-        /// <returns>A last system sleep time</returns>
+        /// <returns>A last system sleep time.</returns>
         public static DateTime GetLastSleepTime()
         {
-            var lastSleepDuration = GetPowerInformation<long>(PowerInformationLevel.LastSleepTime);
-
-            var lastSleepTime = DateTime.Now - TimeSpan.FromMilliseconds(PowerManagementNative.GetTickCount64()) +
-                       TimeSpan.FromTicks(lastSleepDuration);
-
-            return lastSleepTime;
+            return LastPowerChangedStateTime(PowerInformationLevel.LastSleepTime);
         }
 
         /// <summary>
         /// Gets a last time of the system wake.
         /// </summary>
-        /// <returns>A last system wake time</returns>
+        /// <returns>A last system wake time.</returns>
         public static DateTime GetLastWakeTime()
         {
-            var lastWakeDuration = GetPowerInformation<long>(PowerInformationLevel.LastWakeTime);
-
-            var lastSleepTime = DateTime.Now - TimeSpan.FromMilliseconds(PowerManagementNative.GetTickCount64()) +
-                                TimeSpan.FromTicks(lastWakeDuration);
-
-            return lastSleepTime;
+            return LastPowerChangedStateTime(PowerInformationLevel.LastWakeTime);
         }
 
         /// <summary>
@@ -142,6 +132,22 @@ namespace PowerManagementTask
 
             return powerInformation;
         }
+
+        /// <summary>
+        /// Gets a last time of the system change a power state.
+        /// </summary>
+        /// <param name="level">Indicates power level information.</param>
+        /// <returns>Last time of the changing the system power state.</returns>
+        private static DateTime LastPowerChangedStateTime(PowerInformationLevel level)
+        {
+            var lastWakeDuration = GetPowerInformation<long>(level);
+
+            var lastSleepTime = DateTime.Now - TimeSpan.FromMilliseconds(PowerManagementNative.GetTickCount64()) +
+                                TimeSpan.FromTicks(lastWakeDuration);
+
+            return lastSleepTime;
+        }
+
 
     }
 }
