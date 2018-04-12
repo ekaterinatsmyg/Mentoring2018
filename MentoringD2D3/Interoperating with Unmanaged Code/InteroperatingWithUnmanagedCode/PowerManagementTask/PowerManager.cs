@@ -84,27 +84,10 @@ namespace PowerManagementTask
         /// <param name="isReseving">A value that indecates if the hibernate file should be removed or reserved.</param>
         private static void HandleHibernationFile(bool isReseving)
         {
-            ////InteropPowerMnagment.CallNtPowerInformationForWrite<int>(PowerInformationLevel.SystemReserveHiberFile, buffer =>
-            //// {
-            ////    Marshal.WriteInt32(buffer, Convert.ToInt32(isReseving));
-            //// });
-            // var inputBufferSize = Marshal.SizeOf<bool>();
-            // var inputBuffer = Marshal.AllocHGlobal(inputBufferSize);
-
-            // Marshal.StructureToPtr(isReseving, inputBuffer, false);
-
-            // //Marshal.WriteInt32(inputBuffer, 0, isReseving ? 1 : 0);
-            // PowerManagementNative.CallNtPowerInformation((int)PowerInformationLevel.SystemReserveHiberFile, inputBuffer, (uint)inputBufferSize, IntPtr.Zero, 0);
-
-            // Marshal.FreeHGlobal(inputBuffer);
-
-            var inputBufferSize = Marshal.SizeOf<byte>();
-            var inputBuffer = Marshal.AllocHGlobal(inputBufferSize);
-
-            Marshal.WriteByte(inputBuffer, Convert.ToByte(isReseving));
-            PowerManagementNative.CallNtPowerInformation((int)PowerInformationLevel.SystemReserveHiberFile, inputBuffer, (uint)inputBufferSize, IntPtr.Zero, 0);
-
-            Marshal.FreeHGlobal(inputBuffer);
+            InteropPowerManagment.CallNtPowerInformationForWrite<byte>(PowerInformationLevel.SystemReserveHiberFile, buffer =>
+             {
+                 Marshal.WriteByte(buffer, Convert.ToByte(isReseving));
+             });
         }
 
         /// <summary>

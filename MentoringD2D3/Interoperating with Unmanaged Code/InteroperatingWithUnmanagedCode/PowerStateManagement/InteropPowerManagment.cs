@@ -27,6 +27,12 @@ namespace PowerStateManagement
             Marshal.FreeHGlobal(outputBuffer);
         }
 
+        /// <summary>
+        /// Wraps CallNtPowerInformationForRead method.
+        /// </summary>
+        /// <typeparam name="T">An input buffer type.</typeparam>
+        /// <param name="level">Indicates power level information.</param>
+        /// <param name="writeInputBuffer">The function that is responsible for marhaling input parametrs.</param>
         public static void CallNtPowerInformationForWrite<T>(PowerInformationLevel level, Action<IntPtr> writeInputBuffer)
         {
             var inputBufferSize = Marshal.SizeOf<T>();
