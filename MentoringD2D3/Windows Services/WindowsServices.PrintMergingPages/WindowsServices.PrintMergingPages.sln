@@ -5,6 +5,12 @@ VisualStudioVersion = 15.0.27130.2003
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsServices.PrintMergingPages.Manager", "WindowsServices.PrintMergingPages.Manager\WindowsServices.PrintMergingPages.Manager.csproj", "{897B23FF-ECC3-4036-BB00-5F28E3D85C34}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsServices.PrintMergingPages.Service", "WindowsServices.PrintMergingPages.Service\WindowsServices.PrintMergingPages.Service.csproj", "{7E7819FC-6889-4F4E-B9C5-42CB8A728512}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsServices.PrintMergingPages.Registrars", "WindowsServices.PrintMergingPages.Registrars\WindowsServices.PrintMergingPages.Registrars.csproj", "{E7088FE9-4CCA-4BCE-90F6-FC81BEB9D2EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsServices.PrintMergingPages.Tests", "WindowsServices.PrintMergingPages.Tests\WindowsServices.PrintMergingPages.Tests.csproj", "{11218D5C-1757-40E1-8872-62A75BB3B782}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +21,18 @@ Global
 		{897B23FF-ECC3-4036-BB00-5F28E3D85C34}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{897B23FF-ECC3-4036-BB00-5F28E3D85C34}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{897B23FF-ECC3-4036-BB00-5F28E3D85C34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E7819FC-6889-4F4E-B9C5-42CB8A728512}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E7819FC-6889-4F4E-B9C5-42CB8A728512}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E7819FC-6889-4F4E-B9C5-42CB8A728512}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E7819FC-6889-4F4E-B9C5-42CB8A728512}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7088FE9-4CCA-4BCE-90F6-FC81BEB9D2EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7088FE9-4CCA-4BCE-90F6-FC81BEB9D2EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7088FE9-4CCA-4BCE-90F6-FC81BEB9D2EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7088FE9-4CCA-4BCE-90F6-FC81BEB9D2EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11218D5C-1757-40E1-8872-62A75BB3B782}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11218D5C-1757-40E1-8872-62A75BB3B782}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11218D5C-1757-40E1-8872-62A75BB3B782}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11218D5C-1757-40E1-8872-62A75BB3B782}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

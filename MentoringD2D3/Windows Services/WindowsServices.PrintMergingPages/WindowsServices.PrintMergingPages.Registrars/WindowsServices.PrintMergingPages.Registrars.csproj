@@ -70,5 +70,11 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WindowsServices.PrintMergingPages.Service\WindowsServices.PrintMergingPages.Service.csproj">
+      <Project>{7e7819fc-6889-4f4e-b9c5-42cb8a728512}</Project>
+      <Name>WindowsServices.PrintMergingPages.Service</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

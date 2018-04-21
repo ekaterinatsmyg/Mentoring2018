@@ -1,4 +1,8 @@
-﻿using Unity;
+﻿using System;
+using System.IO;
+using WindowsServices.PrintMergingPages.Service;
+using Unity;
+using Unity.Injection;
 
 namespace WindowsServices.PrintMergingPages.Registrars
 {
@@ -8,12 +12,10 @@ namespace WindowsServices.PrintMergingPages.Registrars
 
         public static void BuildUnityContainer()
         {
-            //container
-            //    .RegisterType<IUnitOfWork, OracleClientUnitOfWork>(new InjectionConstructor(ProductConfiguration.ConnectionString))
-            //    .RegisterType<IJobsErrorsRepository, ProductionErrorsDBRepository>(new InjectionConstructor(new ResolvedParameter<IUnitOfWork>()))
-            //    .RegisterType<IWebRepository, FTWebRepository>()
-            //    .RegisterType<IOutputService<OutputModel>, OutputCSVService>(new InjectionConstructor("Output.txt", "Ф"))
-            //    .RegisterType<IProductionErrorsService, ProductionErrorsService>(new InjectionConstructor(new ResolvedParameter<IJobsErrorsRepository>(), new ResolvedParameter<IWebRepository>(), new ResolvedParameter<IOutputService<OutputModel>>()));
+            container
+                .RegisterType<IDocumentFactory, ImagePdfFactory>()
+                .RegisterType<IMergeDocument, ImagePdfMergeDocument>()
+                .RegisterType<IMergePagesService, MergePagesService>(new InjectionConstructor(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "input"), Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "output"), new ResolvedParameter<IDocumentFactory>()));
         }
 
         public static T Resolve<T>()

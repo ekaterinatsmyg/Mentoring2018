@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("WindowsServices.PrintMergingPages.Diagnostics")]
+[assembly: AssemblyTitle("InteroperatingWithUnmanagedCode.ConsoleApp")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("EPAM Systems")]
-[assembly: AssemblyProduct("WindowsServices.PrintMergingPages.Diagnostics")]
+[assembly: AssemblyProduct("InteroperatingWithUnmanagedCode.ConsoleApp")]
 [assembly: AssemblyCopyright("Copyright © EPAM Systems 2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("70595b08-5330-40c9-8dc3-1a67f7b8648c")]
+[assembly: Guid("fe157121-32bf-423f-a00e-4fa16d036ed9")]
 
 // Version information for an assembly consists of the following four values:
 //

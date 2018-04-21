@@ -1,6 +1,6 @@
 ﻿namespace WindowsServices.PrintMergingPages.Service
 {
-    interface IMergePagesService
+    public interface IMergePagesService
     {
         bool Start();
         bool Stop();
