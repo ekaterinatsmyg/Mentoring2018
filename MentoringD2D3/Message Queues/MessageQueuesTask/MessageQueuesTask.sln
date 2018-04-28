@@ -1,0 +1,72 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2003
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Windows Service", "Windows Service", "{6B9F0792-ADD1-4061-AF08-BEEAE3DB8F1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsServices.PrintMergingPages.Service", "WindowsServices.PrintMergingPages\WindowsServices.PrintMergingPages.Service\WindowsServices.PrintMergingPages.Service.csproj", "{7E7819FC-6889-4F4E-B9C5-42CB8A728512}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsServices.PrintMergingPages.Registrars", "WindowsServices.PrintMergingPages\WindowsServices.PrintMergingPages.Registrars\WindowsServices.PrintMergingPages.Registrars.csproj", "{E7088FE9-4CCA-4BCE-90F6-FC81BEB9D2EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsServices.PrintMergingPages.Manager", "WindowsServices.PrintMergingPages\WindowsServices.PrintMergingPages.Manager\WindowsServices.PrintMergingPages.Manager.csproj", "{897B23FF-ECC3-4036-BB00-5F28E3D85C34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsServices.PrintMergingPages.Client", "WindowsServices.PrintMergingPages.Client\WindowsServices.PrintMergingPages.Client.csproj", "{3886358E-3127-45EC-901A-589856EE09CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsService.PrintMergingPages.QueueHelper", "WindowsService.PrintMergingPages.QueueHelper\WindowsService.PrintMergingPages.QueueHelper.csproj", "{B6200C46-4DF2-4B3B-8F93-343760D2D43A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsService.PrintMergingPages.Helpers", "WindowsService.PrintMergingPages.Helpers\WindowsService.PrintMergingPages.Helpers.csproj", "{D8709E2B-2214-4427-AA79-AADD767B0F9F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsService.PrintMergingPages.ClientManager", "WindowsService.PrintMergingPages.ClientManager\WindowsService.PrintMergingPages.ClientManager.csproj", "{6DBB5F71-5122-409B-90AE-90B1998E57AC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7E7819FC-6889-4F4E-B9C5-42CB8A728512}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E7819FC-6889-4F4E-B9C5-42CB8A728512}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E7819FC-6889-4F4E-B9C5-42CB8A728512}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E7819FC-6889-4F4E-B9C5-42CB8A728512}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7088FE9-4CCA-4BCE-90F6-FC81BEB9D2EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7088FE9-4CCA-4BCE-90F6-FC81BEB9D2EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7088FE9-4CCA-4BCE-90F6-FC81BEB9D2EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7088FE9-4CCA-4BCE-90F6-FC81BEB9D2EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{897B23FF-ECC3-4036-BB00-5F28E3D85C34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{897B23FF-ECC3-4036-BB00-5F28E3D85C34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{897B23FF-ECC3-4036-BB00-5F28E3D85C34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{897B23FF-ECC3-4036-BB00-5F28E3D85C34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3886358E-3127-45EC-901A-589856EE09CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3886358E-3127-45EC-901A-589856EE09CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3886358E-3127-45EC-901A-589856EE09CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3886358E-3127-45EC-901A-589856EE09CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6200C46-4DF2-4B3B-8F93-343760D2D43A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6200C46-4DF2-4B3B-8F93-343760D2D43A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6200C46-4DF2-4B3B-8F93-343760D2D43A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6200C46-4DF2-4B3B-8F93-343760D2D43A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8709E2B-2214-4427-AA79-AADD767B0F9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8709E2B-2214-4427-AA79-AADD767B0F9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8709E2B-2214-4427-AA79-AADD767B0F9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8709E2B-2214-4427-AA79-AADD767B0F9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DBB5F71-5122-409B-90AE-90B1998E57AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DBB5F71-5122-409B-90AE-90B1998E57AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DBB5F71-5122-409B-90AE-90B1998E57AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DBB5F71-5122-409B-90AE-90B1998E57AC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7E7819FC-6889-4F4E-B9C5-42CB8A728512} = {6B9F0792-ADD1-4061-AF08-BEEAE3DB8F1E}
+		{E7088FE9-4CCA-4BCE-90F6-FC81BEB9D2EB} = {6B9F0792-ADD1-4061-AF08-BEEAE3DB8F1E}
+		{897B23FF-ECC3-4036-BB00-5F28E3D85C34} = {6B9F0792-ADD1-4061-AF08-BEEAE3DB8F1E}
+		{3886358E-3127-45EC-901A-589856EE09CF} = {6B9F0792-ADD1-4061-AF08-BEEAE3DB8F1E}
+		{B6200C46-4DF2-4B3B-8F93-343760D2D43A} = {6B9F0792-ADD1-4061-AF08-BEEAE3DB8F1E}
+		{D8709E2B-2214-4427-AA79-AADD767B0F9F} = {6B9F0792-ADD1-4061-AF08-BEEAE3DB8F1E}
+		{6DBB5F71-5122-409B-90AE-90B1998E57AC} = {6B9F0792-ADD1-4061-AF08-BEEAE3DB8F1E}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FBE80AB2-34C9-46BC-AD0B-7896A7067AAC}
+	EndGlobalSection
+EndGlobal
