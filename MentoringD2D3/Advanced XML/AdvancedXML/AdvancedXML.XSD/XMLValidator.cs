@@ -1,6 +1,8 @@
 ﻿using System.Xml;
 using System.Xml.Schema;
 using AdvancedXML.Diagnostics;
+using AdvancedXML.Logger;
+using NLog;
 
 namespace AdvancedXML.XSD
 {
@@ -18,11 +20,13 @@ namespace AdvancedXML.XSD
             xmlReaderSettings.ValidationFlags = xmlReaderSettings.ValidationFlags | XmlSchemaValidationFlags.ReportValidationWarnings;
         }
 
+
         /// <summary>
         /// Validates the xml by the xml schema.
         /// </summary>
         /// <param name="xmlPath">The path of the verifying xml.</param>
         /// <returns>If the xml file is valid returns true, else - false.</returns>
+        [MethodInfoLogging]
         public bool IsXmlValid(string xmlPath)
         {
             isValid = true;
@@ -38,6 +42,7 @@ namespace AdvancedXML.XSD
         /// </summary>
         /// <param name="sender">The initiator of the event.</param>
         /// <param name="e">The data related to the errors/warning that appeared during reading the xml.</param>
+        [MethodInfoLogging]
         private void ValidationEventHandler(object sender, ValidationEventArgs e)
         {
             isValid = false;

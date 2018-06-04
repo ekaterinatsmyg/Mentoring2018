@@ -7,7 +7,7 @@ namespace AdvancedXML.Diagnostics
     /// </summary>
     public class ApplicationLogger
     {
-        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+        private static readonly NLog.Logger Logger = LogManager.GetCurrentClassLogger();
 
         /// <summary>
         /// Log application messages to app logger with different logging levels.
@@ -34,6 +34,9 @@ namespace AdvancedXML.Diagnostics
                         break;
                     case LogMessageType.Fatal:
                         Logger.Fatal(message);
+                        break;
+                    case LogMessageType.Trace:
+                        Logger.Trace(message);
                         break;
                     default:
                         Logger.Info(message);

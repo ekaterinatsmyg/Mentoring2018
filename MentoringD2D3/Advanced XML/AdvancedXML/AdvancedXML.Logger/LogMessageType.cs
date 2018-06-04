@@ -18,6 +18,9 @@
         Error,
 
         /// <summary>Fatal Error.</summary>
-        Fatal
+        Fatal,
+
+        /// <summary>Trace Messsage.</summary>
+        Trace
     }
 }

@@ -1,4 +1,6 @@
-﻿using AdvancedXML.XSD;
+﻿using AdvancedXML.Logger;
+using AdvancedXML.XSD;
+using NLog;
 using Unity;
 using Unity.Injection;
 
@@ -10,7 +12,6 @@ namespace AdvancedXML.DependencyRegistrars
 
         public static void BuildUnityContainer()
         {
-            //TODO: pass here correctly connection string
             container
                 .RegisterType<IXmlValidator, XmlValidator>(new InjectionConstructor(XmlValidatorHelper.XmlSchemaPath));
         }
